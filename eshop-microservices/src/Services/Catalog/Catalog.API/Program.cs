@@ -13,6 +13,6 @@ builder.Services.AddMarten(options => options.Connection(builder.Configuration.G
 var app = builder.Build();
 
 
-
+// Configure the Http Request Pipeline
 app.MapCarter();
 app.Run();
