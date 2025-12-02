@@ -5,3 +5,5 @@ global using BuildingBlocks.CQRS;
 global using Catalog.API.Models;
 global using Marten;
 global using Catalog.API.Excepiton;
+global using FluentValidation;
+global using System.Text.Json;
