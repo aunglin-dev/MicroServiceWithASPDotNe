@@ -19,22 +19,12 @@ public class CreateProductCommandValidator : AbstractValidator<CreateProductComm
 
 
 
-internal class CreateProductHandler(IDocumentSession session, IValidator<CreateProductCommand> validator, ILogger<CreateProductHandler> logger) :
+internal class CreateProductHandler(IDocumentSession session, ILogger<CreateProductHandler> logger) :
     ICommandHandler<CreateProductCommand, CreateProductResult>
 {
     public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
     {
-
-        var validatorResult = await validator.ValidateAsync(command, cancellationToken);    
-        var validatorErrorsMessage = validatorResult.Errors.Select(el=> el.ErrorMessage).ToList();
-
-        if (validatorErrorsMessage.Any()) {
-            var jsonErrorMessage = JsonSerializer.Serialize(validatorErrorsMessage);
-            logger.LogInformation("[CreateProductHandler] didn't pass validation, Detailed data: {Data}",jsonErrorMessage);
-            throw new ValidationException(validatorErrorsMessage.FirstOrDefault());
-        }
-
-
+        logger.LogInformation("CreateProductHandler.Handle called with {@command}", command);
         //Create Product Entity from Command 
         Product product = new Product()
         {
