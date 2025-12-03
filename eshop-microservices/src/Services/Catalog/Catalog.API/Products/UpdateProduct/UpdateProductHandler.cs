@@ -11,7 +11,7 @@ public class UpdateProductCommandValidator : AbstractValidator<UpdateProductComm
     {
         RuleFor(x => x.Id).NotNull().WithMessage("Product Id is required");
 
-        RuleFor(x => x.Name).NotEmpty().WithMessage("Product Id is required")
+        RuleFor(x => x.Name).NotEmpty().WithMessage("Product Name is required")
             .Length(2, 150).WithMessage("Name must be between 2 and 150 characters");
 
         RuleFor(x => x.Price).GreaterThan(0).WithMessage("Price Must be greater than 0");
@@ -27,7 +27,7 @@ ICommandHandler<UpdateProductCommand, UpdateProductResult>
 
         var product = await session.LoadAsync<Product>(command.Id, cancellationToken);
 
-        if (product == null) throw new ProductNotFoundException();
+        if (product == null) throw new ProductNotFoundException(command.Id);
 
         product.Name = command.Name;
         product.Description = command.Description;
