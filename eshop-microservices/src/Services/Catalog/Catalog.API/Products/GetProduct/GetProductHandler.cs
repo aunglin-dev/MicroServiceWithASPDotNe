@@ -7,14 +7,12 @@ public record GetProductQuery() : IQuery<GetProductResults>;
 
 public record GetProductResults(IEnumerable<Product> Products);
 
-internal class GetProductQueryHandler(IDocumentSession session, ILogger<GetProductQueryHandler> logger) :
+internal class GetProductQueryHandler(IDocumentSession session) :
 IQueryHandler<GetProductQuery, GetProductResults>
 {
     public async Task<GetProductResults> Handle(GetProductQuery query, CancellationToken cancellationToken)
     {
         
-        logger.LogInformation("GetProductQueryHandler.Handle called with {@query}",query);
-
        var product = await session.Query<Product>().ToListAsync(cancellationToken);
 
 
