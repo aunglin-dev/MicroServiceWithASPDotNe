@@ -8,4 +8,4 @@ global using Catalog.API.Excepiton;
 global using FluentValidation;
 global using BuildingBlocks.Exceptions.Handler;
 global using BuildingBlocks.Behaviors;
-
+global using Marten.Pagination;
