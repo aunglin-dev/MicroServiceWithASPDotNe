@@ -1,6 +1,24 @@
-﻿namespace Basket.API.Basket.GetBasket;
+﻿using Mapster;
+using MediatR;
 
-public class GetBasketEndpoints
+namespace Basket.API.Basket.GetBasket;
+
+public record GetBasketResponse(ShoppingCart Cart);
+
+public class GetBasketEndpoints : ICarterModule
 {
-    
+    public void AddRoutes(IEndpointRouteBuilder app)
+    {
+        app.MapGet("/GetBasket/{userName}", async (string userName, ISender sender) =>
+        {
+            var result = await sender.Send(new GetBasketQuery(userName));
+            var response = result.Adapt<GetBasketResponse>();
+            return Results.Ok(response);    
+        }).
+        WithName("Get Basket")
+            .Produces<GetBasketResponse>(StatusCodes.Status200OK)
+            .ProducesProblem(StatusCodes.Status400BadRequest)
+            .WithSummary("Get Basket By User")
+            .WithDescription("Get Basket By User"); 
+    }
 }
