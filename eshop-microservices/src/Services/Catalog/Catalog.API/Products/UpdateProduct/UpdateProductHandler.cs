@@ -1,4 +1,6 @@
-﻿namespace Catalog.API.Products.UpdateProduct;
+﻿using Catalog.API.Exception;
+
+namespace Catalog.API.Products.UpdateProduct;
 
 public record UpdateProductCommand(Guid Id, string Name, string Description, string ImageFile, List<string> Category, decimal Price) :
     ICommand<UpdateProductResult>;

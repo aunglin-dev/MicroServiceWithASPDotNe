@@ -1,6 +1,6 @@
 ﻿using BuildingBlocks.Exceptions;
 
-namespace Catalog.API.Excepiton;
+namespace Catalog.API.Exception;
 
 public class ProductNotFoundException : NotFoundException
 {

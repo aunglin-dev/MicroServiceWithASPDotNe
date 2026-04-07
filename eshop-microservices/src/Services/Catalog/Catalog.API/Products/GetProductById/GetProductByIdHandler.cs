@@ -1,4 +1,4 @@
-﻿using Catalog.API.Excepiton;
+﻿using Catalog.API.Exception;
 
 namespace Catalog.API.Products.GetProductById;
 
