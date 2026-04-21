@@ -33,8 +33,7 @@ internal class CreateProductHandler(IDocumentSession session) :
             Price = command.Price,
             Category = command.Category,
         };
-
-        //TODO
+        
         //Save to the DB
         session.Store(product);
         await session.SaveChangesAsync();
