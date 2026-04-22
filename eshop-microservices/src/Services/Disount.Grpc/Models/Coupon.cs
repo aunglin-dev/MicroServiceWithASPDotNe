@@ -1,6 +1,6 @@
 ﻿namespace Disount.Grpc.Models;
 
-public class CouponModel
+public class Coupon
 {
     public int Id { get; set; }
 

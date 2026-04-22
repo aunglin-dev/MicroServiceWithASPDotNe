@@ -1,10 +1,17 @@
 
+using Disount.Grpc.Data;
 using Disount.Grpc.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddGrpc();
+
+
+// DbContext
+builder.Services.AddDbContext<DiscountContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("Database")));
 
 var app = builder.Build();
 
