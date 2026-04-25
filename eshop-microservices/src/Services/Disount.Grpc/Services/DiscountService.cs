@@ -11,16 +11,19 @@ public class DiscountService : DiscountProtoService.DiscountProtoServiceBase
     }
     public override Task<CouponModel> CreateDiscount(CreateDiscountRequest request, ServerCallContext context)
     {
+        //TODO : Db Operation 
         return base.CreateDiscount(request, context);
     }
 
     public override Task<CouponModel> UpdateDiscount(UpdateDiscountRequest request, ServerCallContext context)
     {
+        //TODO : Db Operation 
         return base.UpdateDiscount(request, context);
     }
 
     public override Task<DeleteDiscountResponse> DeleteDiscount(DeleteDiscountRequest request, ServerCallContext context)
     {
+        //TODO : Db Operation 
         return base.DeleteDiscount(request, context);
     }
 
