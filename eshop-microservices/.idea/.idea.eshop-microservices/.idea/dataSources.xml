@@ -22,5 +22,12 @@
       <jdbc-url>jdbc:postgresql://localhost:5433/BasketDb?logServerErrorDetail=true&amp;password=postgres&amp;user=postgres</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="discountdb" uuid="987160f1-deaf-4acb-9922-656627a124f6">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/src/Services/Disount.Grpc/discountdb</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
