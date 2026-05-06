@@ -21,10 +21,17 @@ services:
       context: .
       dockerfile: src/Services/Basket/Basket.API/Dockerfile
 
+  disount.grpc:
+    image: ${DOCKER_REGISTRY-}disountgrpc
+    build:
+      context: .
+      dockerfile: src/Services/Disount.Grpc/Dockerfile
+
 volumes:
   postgres_catalog:
   postgres_basket:
 
     
+
 
 
